@@ -1,0 +1,6 @@
+#!/bin/bash
+# show the status of the current git repository, if any
+echo GSTAT v0.3
+git branch | grep \* -x | echo Your branch is 
+ls -l
+git diff 
