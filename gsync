@@ -1,0 +1,27 @@
+#!/bin/bash
+# a quick bash script to ease git synchronization
+echo 1. Fetch Remote
+echo 2. Push local
+echo Choice
+read input
+if [ $input == 1 ]; then
+	echo What url after https://github.com/
+	read url
+	git clone https://github.com/$url
+elif [ $input == 2 ]; then
+	echo File to commit
+	read file
+	echo Message -- put "none" without quotes for no message
+	read msg
+	if [ $msg == none ]; then
+		git commit "$file"
+		git push
+		exit
+	fi
+	git commit "$file" -m "$msg"
+	exit
+else
+	echo Please choose either 1 or 2.
+	exit
+fi
+	
